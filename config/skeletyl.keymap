@@ -1,0 +1,106 @@
+/*
+ * Skeletyl (LAYOUT_split_3x5_3, 36 keys) ZMK keymap.
+ * Translated from Vial export ll.vil (2023-02-01) - a 34-key
+ * LAYOUT_split_3x5_2 map. Positions 32 and 33 are NEW; see README.
+ * PTR layer: output toggle, BT clear and BT profiles 0-3 fill dead top-row slots.
+ *
+ *   0  1  2  3  4        5  6  7  8  9
+ *  10 11 12 13 14       15 16 17 18 19
+ *  20 21 22 23 24       25 26 27 28 29
+ *        30 31 32       33 34 35
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+
+#define BASE 0
+#define FN   1
+#define NUM  2
+#define FUN  3
+#define UTL  4
+
+/ {
+    behaviors {
+        // 1. Define the Tap Dance for semicolon (tap) and single quote (double tap)
+        td_semi_quote: tap_dance_semi_quote {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SEMI>, <&kp APOS>;
+        };
+
+        // 2. Define the Hold-Tap behavior combining RCTRL on hold and the Tap Dance on tap
+        ctrl_td_semi: ctrl_td_semi_quote {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&kp RCTRL>, <&td_semi_quote>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            bindings = <
+    &kp Q            &mt LALT W       &kp E            &kp R            &kp T              &kp Y            &kp U            &kp I            &mt RALT O       &kp P
+    &mt LCTRL A      &kp S            &kp D            &kp F            &kp G              &kp H            &kp J            &kp K            &kp L            &mt RCTRL td_semi_quote
+    &mt LSHIFT Z     &kp X            &kp C            &kp V            &kp B              &kp N            &kp M            &kp COMMA        &kp DOT          &mt RSHIFT FSLH
+                                      &kp LWIN         &mo 1            &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+    &kp TAB          &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &kp PSCRN          &kp C_MUTE       &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &kp BSLH
+    &kp LG(L)        &kp LEFT         &kp DOWN         &kp RIGHT        &kp C_BRI_UP       &kp C_VOL_UP     &kp LEFT         &kp DOWN         &kp RIGHT        &trans
+    &kp LSHIFT       &kp HOME         &kp CAPS         &kp END          &kp C_BRI_DN       &kp C_VOL_DN     &kp PG_UP        &kp LG(TAB)      &kp PG_DN        &kp RSHIFT
+                                      &kp K_APP        &trans           &kp BSPC           &kp DEL          &kp SPACE        &mo 3
+            >;
+        };
+
+        num_layer {
+            bindings = <
+    &kp EXCL          &kp AT          &kp HASH         &kp DOLLAR       &kp PERCENT        &kp CARET        &kp AMPS         &kp ASTERISK     &kp LPAR         &kp RPAR
+    &kp N1            &kp N2          &kp N3           &kp N4           &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0
+    &kp LSHIFT        &kp GRAVE       &kp BSLH         &kp LBKT         &kp MINUS          &kp EQUAL        &kp RBKT         &kp COMMA        &kp DOT          &kp FSLH
+                                      &kp K_APP        &mo 4            &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+            >;
+        };
+
+        fun_layer {
+            bindings = <
+    &kp ESC          &none            &none            &none            &kp INS            &kp PAUSE_BREAK  &none            &none           &none             &none
+    &kp F1           &kp F2           &kp F3           &kp F4           &kp F5             &kp F6           &kp F7           &kp F8          &kp F9            &kp F10
+    &kp LSHIFT       &kp LCTRL        &kp LALT         &none            &kp F11            &kp F12          &none            &kp RALT        &kp RCTRL         &kp RSHIFT
+                                      &kp LWIN         &trans           &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+            >;
+        };
+
+        utl_layer {
+            bindings = <
+    &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &none              &rgb_ug RGB_ON   &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &bootloader
+    &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_CLR         &rgb_ug RGB_OFF  &rgb_ug RGB_EFR  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &none
+    &studio_unlock   &out OUT_BLE     &out OUT_USB     &none            &bt BT_CLR_ALL     &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &none
+                                      &kp LWIN         &trans           &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+            >;
+        };
+        studio1_layer {
+            status = "reserved";
+        };
+        studio2_layer {
+            status = "reserved";
+        };
+        studio3_layer {
+            status = "reserved";
+        };
+        studio4_layer {
+            status = "reserved";
+        };
+    };
+};
