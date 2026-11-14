@@ -23,23 +23,13 @@
 #define UTL  4
 
 / {
-    behaviors {
-        // 1. Define the Tap Dance for semicolon (tap) and single quote (double tap)
+behaviors {
+        // Tap for SEMI (;), Hold for RCTRL, Double Tap for APOS (')
         td_semi_quote: tap_dance_semi_quote {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp SEMI>, <&kp APOS>;
-        };
-
-        // 2. Define the Hold-Tap behavior combining RCTRL on hold and the Tap Dance on tap
-        ctrl_td_semi: ctrl_td_semi_quote {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            bindings = <&kp RCTRL &td_semi_quote>;
+            bindings = <&mt RCTRL SEMI>, <&kp APOS>;
         };
     };
 
@@ -49,7 +39,7 @@
         base_layer {
             bindings = <
     &kp Q            &mt LALT W       &kp E            &kp R            &kp T              &kp Y            &kp U            &kp I            &mt RALT O       &kp P
-    &mt LCTRL A      &kp S            &kp D            &kp F            &kp G              &kp H            &kp J            &kp K            &kp L            &ctrl_td_semi
+    &mt LCTRL A      &kp S            &kp D            &kp F            &kp G              &kp H            &kp J            &kp K            &kp L            &td_semi_quote
     &mt LSHIFT Z     &kp X            &kp C            &kp V            &kp B              &kp N            &kp M            &kp COMMA        &kp DOT          &mt RSHIFT FSLH
                                       &kp LWIN         &mo 1            &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
             >;
