@@ -1,9 +1,24 @@
-#include "skeletyl.dtsi"
+#include <dt-bindings/zmk/matrix_transform.h>
 #include "skeletyl-layouts.dtsi"
+#include "../../nice_nano_v2.overlay"
+
+/ {
+    chosen {
+        zmk,underglow = &led_strip;
+    };
+};
 
 &default_transform {
     col-offset = <5>;
 };
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &physical_layout0;
+      
+        // Other chosen items
+    };
+}
 
 &kscan0 {
     col-gpios

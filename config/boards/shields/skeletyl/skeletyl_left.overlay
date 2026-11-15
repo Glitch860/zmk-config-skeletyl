@@ -1,6 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "skeletyl-layouts.dtsi"
-#include "../../nice_nano.overlay"
+#include "../../nice_nano_v2.overlay"
 
 / {
     chosen {
