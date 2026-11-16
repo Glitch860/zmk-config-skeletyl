@@ -19,7 +19,11 @@
         // Other chosen items
     };
 }
-
+/ {
+    chosen {
+        zmk,physical-layout = &skeletyl_layout;
+    };
+};
 &kscan0 {
     col-gpios
         = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
