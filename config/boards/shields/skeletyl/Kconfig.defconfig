@@ -1,14 +1,18 @@
-if SHIELD_SKELETYL_LEFT
+if SHIELD_SKEETYL_LEFT
 config ZMK_SPLIT
     default y
+
 config ZMK_SPLIT_ROLE_CENTRAL
+    bool
     default y
 endif
 
-if SHIELD_SKELETYL_RIGHT
+if SHIELD_SKEETYL_RIGHT
 config ZMK_SPLIT
     default y
+
 config ZMK_SPLIT_ROLE_PERIPHERAL
+    bool
     default y
 endif
 
