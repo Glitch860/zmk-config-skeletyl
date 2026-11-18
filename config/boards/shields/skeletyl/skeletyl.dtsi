@@ -2,8 +2,8 @@
  * BastardKB Skeletyl , nFRF52840 pro micro
  * Wiring
  *   rows: Top 00 (P1.04), Middle 01 (P0.11), Bottom 02 (P1.00), Thumb 03 (P0.24)
- *   Left cols: 0-4 (P0.02), (P1.15), (P1.13), (P1.11), (P0.10)
- *   Right cols: 0-4 (P0.10), (P1.11), (P1.13), (P1.15), (P0.02)
+ *   Left cols: 0-4 (outer -> inner): P0.10, P1.11, P1.13, P1.15, P0.02
+ *   Right cols: 0-4 (inner -> outer): P0.10, P1.11, P1.13, P1.15, P0.02
  * Diodes are COL2ROW. Rows are inputes with pull-downs, columns are driven.
  */
 
