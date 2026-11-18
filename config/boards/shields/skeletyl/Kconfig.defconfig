@@ -13,4 +13,8 @@ if SHIELD_SKELETYL_LEFT || SHIELD_SKELETYL_RIGHT
 config ZMK_SPLIT
     default y
 
+<<<<<<< Updated upstream
 endif
+=======
+endif
+>>>>>>> Stashed changes
