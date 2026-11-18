@@ -1,12 +1,10 @@
 /*
- * BastardKB Skeletyl (flex PCB + Elite-C adapter) with a nice!nano v2
- * compatible nRF52840 Pro Micro in the adapter.
- *
- * Pins follow QMK bastardkb/skeletyl/promicro, in Pro Micro numbering:
- *   rows: F7 (18), C6 (5), D4 (4), B5 (9)
- *   cols: F5 (20), B6 (10), D7 (6), E6 (7), B4 (8)
- * Diodes are ROW2COL. Columns run outer to inner on both halves; the
- * right half lists them reversed. Thumbs use columns 2, 3 and 0 of row 3.
+ * BastardKB Skeletyl , nFRF52840 pro micro
+ * Wiring
+ *   rows: Top 00 (P1.04), Middle 01 (P0.11), Bottom 02 (P1.00), Thumb 03 (P0.24)
+ *   Left cols: 0-4 (P0.02), (P1.15), (P1.13), (P1.11), (P0.10)
+ *   Right cols: 0-4 (P0.10), (P1.11), (P1.13), (P1.15), (P0.02)
+ * Diodes are COL2ROW. Rows are inputes with pull-downs, columns are driven.
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
@@ -30,7 +28,7 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)   RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
+        diode-direction = "col2row";
         wakeup-source;
 
         row-gpios
