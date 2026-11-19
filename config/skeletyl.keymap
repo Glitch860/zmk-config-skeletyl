@@ -22,13 +22,20 @@
 #define FUN  3
 #define UTL  4
 
+&mt {
+    flavor = "balanced";
+    tapping-term-ms = <250>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+};
+
 / {
 behaviors {
         // Tap for SEMI (;), Hold for RCTRL, Double Tap for APOS (')
         td_semi_quote: tap_dance_semi_quote {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&mt RCTRL SEMI>, <&kp APOS>;
         };
     };
