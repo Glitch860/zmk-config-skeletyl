@@ -48,7 +48,7 @@ behaviors {
     &kp Q            &mt LALT W       &kp E            &kp R            &kp T              &kp Y            &kp U            &kp I            &mt RALT O       &kp P
     &mt LCTRL A      &kp S            &kp D            &kp F            &kp G              &kp H            &kp J            &kp K            &kp L            &td_semi_quote
     &mt LSHIFT Z     &kp X            &kp C            &kp V            &kp B              &kp N            &kp M            &kp COMMA        &kp DOT          &mt RSHIFT FSLH
-                                      &kp LWIN         &mo 1            &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+                                      &kp LWIN         &mo 1            &kp BSPC           &lt 1 DEL        &kp SPACE        &lt 2 ENTER
             >;
         };
 
@@ -57,7 +57,7 @@ behaviors {
     &kp TAB          &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &kp PSCRN          &kp C_MUTE       &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &kp BSLH
     &kp LG(L)        &kp LEFT         &kp DOWN         &kp RIGHT        &kp C_BRI_UP       &kp C_VOL_UP     &kp LEFT         &kp DOWN         &kp RIGHT        &trans
     &kp LSHIFT       &kp HOME         &kp CAPS         &kp END          &kp C_BRI_DN       &kp C_VOL_DN     &kp PG_UP        &kp LG(TAB)      &kp PG_DN        &kp RSHIFT
-                                      &kp K_APP        &trans           &kp BSPC           &kp DEL          &kp SPACE        &mo 3
+                                      &kp K_APP        &trans           &kp BSPC           &tans            &kp SPACE        &mo 3
             >;
         };
 
@@ -66,7 +66,7 @@ behaviors {
     &kp EXCL          &kp AT          &kp HASH         &kp DOLLAR       &kp PERCENT        &kp CARET        &kp AMPS         &kp ASTERISK     &kp LPAR         &kp RPAR
     &kp N1            &kp N2          &kp N3           &kp N4           &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0
     &kp LSHIFT        &kp GRAVE       &kp BSLH         &kp LBKT         &kp MINUS          &kp EQUAL        &kp RBKT         &kp COMMA        &kp DOT          &kp FSLH
-                                      &kp K_APP        &mo 4            &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+                                      &kp K_APP        &mo 4            &kp BSPC           &trans           &kp SPACE        &lt 2 ENTER
             >;
         };
 
@@ -75,7 +75,7 @@ behaviors {
     &kp ESC          &none            &none            &none            &kp INS            &kp PAUSE_BREAK  &none            &none           &none             &none
     &kp F1           &kp F2           &kp F3           &kp F4           &kp F5             &kp F6           &kp F7           &kp F8          &kp F9            &kp F10
     &kp LSHIFT       &kp LCTRL        &kp LALT         &none            &kp F11            &kp F12          &none            &kp RALT        &kp RCTRL         &kp RSHIFT
-                                      &kp LWIN         &trans           &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+                                      &kp LWIN         &trans           &kp BSPC           &trans           &kp SPACE        &lt 2 ENTER
             >;
         };
 
@@ -84,7 +84,7 @@ behaviors {
     &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bootloader        &rgb_ug RGB_ON   &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &bootloader
     &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_CLR         &rgb_ug RGB_OFF  &rgb_ug RGB_EFR  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &none
     &studio_unlock   &out OUT_BLE     &out OUT_USB     &none            &bt BT_CLR_ALL     &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &none
-                                      &kp LWIN         &trans           &kp BSPC           &kp DEL          &kp SPACE        &lt 2 ENTER
+                                      &kp LWIN         &trans           &kp BSPC           &trans           &kp SPACE        &lt 2 ENTER
             >;
         };
         studio1_layer {
