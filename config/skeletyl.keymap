@@ -38,6 +38,23 @@ behaviors {
             tapping-term-ms = <250>;
             bindings = <&mt RCTRL SEMI>, <&kp APOS>;
         };
+       // Hold = momentary layer, Tap = LGUI. The tiny term lets the tap dance's
+       // own 250ms timer be the only real wait before a hold fires.
+       lt_fast: lt_fast {
+           compatible = "zmk,behavior-hold-tap";
+           #binding-cells = <2>;
+           flavor = "hold-preferred";
+           tapping-term-ms = <10>;
+           bindings = <&mo>, <&kp>;
+       };
+
+       // Tap = LGUI, Double tap = ENTER, Hold = layer 2
+       td_gui_enter: tap_dance_gui_enter {
+           compatible = "zmk,behavior-tap-dance";
+           #binding-cells = <0>;
+           tapping-term-ms = <250>;
+           bindings = <&lt_fast 2 LGUI>, <&kp ENTER>;
+       };
     };
 
     keymap {
@@ -48,7 +65,7 @@ behaviors {
     &kp Q            &mt LALT W       &kp E            &kp R            &kp T              &kp Y            &kp U            &kp I            &mt RALT O       &kp P
     &mt LCTRL A      &kp S            &kp D            &kp F            &kp G              &kp H            &kp J            &kp K            &kp L            &td_semi_quote
     &mt LSHIFT Z     &kp X            &kp C            &kp V            &kp B              &kp N            &kp M            &kp COMMA        &kp DOT          &mt RSHIFT FSLH
-                                      &kp LWIN         &mo 1            &kp BSPC           &lt 1 DEL        &kp SPACE        &lt 2 ENTER
+                                      &td_gui_enter    &mo 1            &kp BSPC           &lt 1 DEL        &kp SPACE        &lt 2 ENTER
             >;
         };
 
